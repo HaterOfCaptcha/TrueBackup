@@ -1,3 +1,5 @@
+# commit version
+
 import random
 import pandas as pd
 
@@ -130,8 +132,7 @@ def enigma(text, ref, rot1, shift1, rot2, shift2, rot3, shift3):
     # resecond=rotors[0][rotors[0].index(rotors[rot1][rotors[0].index(rethird)-shift1])+shift1]
 
 
-enigma('AAAAAAA', 1, 1, 0, 2, 0, 3, 0)
-# BDZGOWC
+
 
 def print_mimic(text, n):
     end = ''
@@ -154,6 +155,4 @@ def print_mimic(text, n):
                 end += word
                 word = random.choice(text[''])
     print(end)
-df=pd.read_csv('https://stepik.org/media/attachments/lesson/345422/torg.csv',sep=';')
-#print(df)
-print(df.groupby(['IP_PROP32']).sum())
+
