@@ -1,6 +1,6 @@
-
 import random
-import pandas as pd
+
+print(1235)
 
 
 def caesar(string, n):
@@ -50,7 +50,7 @@ def kidds_encryption(text, reverse=False):
               'd': '†', 'l': '0', 'm': '9', 'b': '2', 'y': ':', 'g': '3', 'u': '?', 'v': '¶', 'c': '-', 'p': '.'}
     end = ''
     for i in range(len(text)):
-        if reverse == False:
+        if reverse is False:
             if text[i] in cypher:
                 end += cypher[text[i]]
         else:
@@ -58,7 +58,7 @@ def kidds_encryption(text, reverse=False):
                 for k, v in cypher.items():
                     if v == text[i]:
                         end += k
-    return (end)
+    return end
 
 
 def mimic_dict(string):
@@ -71,6 +71,7 @@ def mimic_dict(string):
             dct.setdefault(sis[i], [sis[i + 1]])
     return dct
 
+
 def reflector(symbol, n):
     rotors = {0: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
               1: 'YRUHQSLDPXNGOKMIEBFZCWVJAT',
@@ -81,7 +82,7 @@ def reflector(symbol, n):
     end = ''
     for i in range(len(symbol)):
         end += rotors[n][(rotors[0].index(symbol[i]))]
-    return (end)
+    return end
 
 
 def enigma(text, ref, rot1, shift1, rot2, shift2, rot3, shift3):
@@ -118,7 +119,7 @@ def enigma(text, ref, rot1, shift1, rot2, shift2, rot3, shift3):
                         rotors[0])]
 
             reflect = reflector(third, ref)
-            changethird = rotors[0][((rotors[0].index(reflect) + shift1)) % len(rotors[0])]
+            changethird = rotors[0][(rotors[0].index(reflect) + shift1) % len(rotors[0])]
             rethird = rotors[0][rotors[rot1].index(changethird)]
             changesecond = rotors[0][(rotors[0].index(rethird) - shift1 + shift2) % len(rotors[0])]
             resecond = rotors[0][rotors[rot2].index(changesecond)]
@@ -129,8 +130,6 @@ def enigma(text, ref, rot1, shift1, rot2, shift2, rot3, shift3):
     print(end)
 
     # resecond=rotors[0][rotors[0].index(rotors[rot1][rotors[0].index(rethird)-shift1])+shift1]
-
-
 
 
 def print_mimic(text, n):
@@ -154,4 +153,3 @@ def print_mimic(text, n):
                 end += word
                 word = random.choice(text[''])
     print(end)
-
